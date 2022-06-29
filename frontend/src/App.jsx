@@ -1,13 +1,7 @@
-import MatchList from "@components/MatchList";
-
 import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-      <MatchList />
-    </div>
-  );
+  return <div className="App" />;
 }
 
 export default App;
