@@ -1,5 +1,12 @@
 function MatchCard() {
-  return <div>MatchCard</div>;
+  return (
+    <p>
+      <h3>This Match Name</h3>
+      <ul>
+        <li>This is a list item</li>
+      </ul>
+    </p>
+  );
 }
 
 export default MatchCard;
