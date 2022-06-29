@@ -55,14 +55,14 @@ const keywords = [
 
 export default function Home() {
   return (
-    <div className="h-[100vh]">
-      <header className="flex justify-center my-8">
-        <img className="max-w-[40%]" src={logo} alt="Logo Abside" />
+    <div className="h-[92vh]">
+      <header className="flex justify-center">
+        <img className="max-w-[40%] my-8" src={logo} alt="Logo Abside" />
       </header>
       <main className="flex flex-col justify-center items-center mx-4">
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center ">
           <img src={chevronGauche} alt="Chevron gauche" className="w-4 mr-2" />
-          <section className="bg-slate-100 rounded-xl p-8 flex flex-col justify-center items-center">
+          <section className="bg-slate-100 rounded-xl p-8 flex flex-col justify-center items-center h-[26rem]">
             <h1 className="text-2xl mb-4">Projet : Chatbot </h1>
             <h2 className="text-xl mb-4">Client : Crédit Agricole</h2>
             <p className="text-justify text-md">
