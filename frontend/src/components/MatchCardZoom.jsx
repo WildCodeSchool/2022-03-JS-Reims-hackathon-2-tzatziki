@@ -5,8 +5,7 @@ const titleClass = "tracking-wide text-2xl m-2";
 
 function MatchCardZoom({ id }) {
   const match = likedList[id - 1];
-  console.warn(id);
-  return (
+  return likedList && id ? (
     <main className="flex flex-col m-4">
       <h3 className={titleClass}>{match.name}</h3>
       <section>
@@ -43,11 +42,15 @@ function MatchCardZoom({ id }) {
         </ul>
       </section>
     </main>
-  );
+  ) : null;
 }
 
 MatchCardZoom.propTypes = {
-  id: Proptypes.number.isRequired,
+  id: Proptypes.number,
+};
+
+MatchCardZoom.defaultProps = {
+  id: null,
 };
 
 export default MatchCardZoom;

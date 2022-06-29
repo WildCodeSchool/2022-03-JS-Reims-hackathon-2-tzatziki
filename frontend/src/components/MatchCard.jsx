@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function MatchCard({ match, id }) {
   return (
     <Link to={`/match/${id}`}>
-      <p className="flex flex-col w-[90vw] min-h-[10vh] h-fit border border-black rounded-md justify-center items-center m-4">
+      <section className="flex flex-col w-[90vw] min-h-[10vh] h-fit border border-black rounded-md justify-center items-center m-4">
         <h3 className="p-2">{match.name}</h3>
         <ul className="flex flex-wrap gap-2 p-3">
           {match.tags.map((tag) => (
@@ -16,15 +16,16 @@ function MatchCard({ match, id }) {
             </li>
           ))}
         </ul>
-      </p>
+      </section>
     </Link>
   );
 }
 
 MatchCard.propTypes = {
-  match: PropTypes.shape.isRequired,
-  name: PropTypes.string.isRequired,
-  tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+  match: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+  }).isRequired,
   id: PropTypes.number.isRequired,
 };
 

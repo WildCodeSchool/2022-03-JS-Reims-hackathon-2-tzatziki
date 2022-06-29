@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 function Matches() {
   const { id } = useParams();
-  return <MatchCardZoom id={id} />;
+  return <MatchCardZoom id={parseInt(id, 10)} />;
 }
 
 export default Matches;
