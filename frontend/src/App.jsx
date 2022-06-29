@@ -1,4 +1,4 @@
-import { BrowserRouter } from "react-router-dom";
+import Router from "./services/Router";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 
@@ -7,10 +7,10 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <Router>
         <Home />
         <Navbar />
-      </BrowserRouter>
+      </Router>
     </div>
   );
 }
