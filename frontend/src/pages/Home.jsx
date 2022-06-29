@@ -1,3 +1,5 @@
+import React, { useState } from "react";
+import TinderCard from "react-tinder-card";
 import logo from "../assets/logo-abside.png";
 import chevronDroit from "../assets/chevron-droit.png";
 import chevronGauche from "../assets/chevron-gauche.png";
@@ -53,7 +55,34 @@ const keywords = [
   },
 ];
 
+const db = [
+  {
+    title: "Chatbot",
+    client: "Crédit Agricole",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora labore, facilis ea suscipit natus repellendus ipsa eos atque, odit, assumenda explicabo recusandae aliquid optio corrupti.",
+    progress: 70,
+  },
+  {
+    title: "Tinderlike",
+    client: "Tinder",
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas ea maxime quia! Eligendi at temporibus ex, magni nihil doloremque, fugit magnam odit, voluptatibus ipsa cum",
+    progress: 50,
+  },
+];
+
 export default function Home() {
+  const [lastDirection, setLastDirection] = useState();
+
+  const swiped = (direction, nameToDelete) => {
+    console.log(`removing: ${nameToDelete}`);
+    setLastDirection(direction);
+  };
+
+  const outOfFrame = (name) => {
+    console.log(`${name} left the screen!`);
+  };
   return (
     <main className="h-[92vh] flex flex-col mx-4 place-content-around">
       <picture className="flex justify-center ">
@@ -61,22 +90,30 @@ export default function Home() {
       </picture>
       <section className="flex justify-center items-center">
         <img src={chevronGauche} alt="Chevron gauche" className="w-4 mr-2" />
-        <div className="bg-slate-100 rounded-xl p-8 flex flex-col justify-center items-center h-[24rem]">
-          <h1 className="text-2xl mb-4">Projet : Chatbot </h1>
-          <h2 className="text-xl mb-4">Client : Crédit Agricole</h2>
-          <p className="text-justify text-md mb-4">
-            Description : Lorem ipsum dolor sit amet consectetur adipisicing
-            elit. Mollitia ducimus eius cumque earum itaque natus, molestias
-            sapiente reprehenderit iusto, delectus aliquam nesciunt aut corporis
-            exercita.
-          </p>
-          <div className="flex flex-col justify-center items-center">
-            Avancement :{" "}
-            <progress id="file" max="100" value="70">
-              {" "}
-              70%{" "}
-            </progress>
-          </div>
+        <div className="cardContainer">
+          {db.map((character) => (
+            <TinderCard
+              className="swipe"
+              key={character.title}
+              onSwipe={(dir) => swiped(dir, character.name)}
+              onCardLeftScreen={() => outOfFrame(character.name)}
+            >
+              <div className="bg-slate-100 rounded-xl p-8 flex flex-col justify-center items-center h-[24rem] card">
+                <h1 className="text-2xl mb-4">Projet : {character.title} </h1>
+                <h2 className="text-xl mb-4">Client : {character.client}</h2>
+                <p className="text-justify text-md mb-4">
+                  Description : {character.description}
+                </p>
+                <div className="flex flex-col justify-center items-center">
+                  Avancement :{" "}
+                  <progress id="file" max="100" value={character.progress}>
+                    {" "}
+                    70%{" "}
+                  </progress>
+                </div>
+              </div>
+            </TinderCard>
+          ))}
         </div>
         <img src={chevronDroit} alt="Chevron droit" className="w-4 ml-2" />
       </section>
