@@ -1,6 +1,6 @@
-import logo from "../assets/logo-abside.png";
 import chevronDroit from "../assets/chevron-droit.png";
 import chevronGauche from "../assets/chevron-gauche.png";
+import Logo from "../components/Logo";
 
 const keywords = [
   {
@@ -55,11 +55,9 @@ const keywords = [
 
 export default function Home() {
   return (
-    <main className="h-[92vh] flex flex-col mx-4 place-content-around">
-      <picture className="flex justify-center ">
-        <img className="max-w-[40%]" src={logo} alt="Logo Abside" />
-      </picture>
-      <section className="flex justify-center items-center">
+    <main className="h-[92vh] flex flex-col place-content-around">
+      <Logo />
+      <section className="flex justify-center items-center mx-4">
         <img src={chevronGauche} alt="Chevron gauche" className="w-4 mr-2" />
         <div className="bg-slate-100 rounded-xl p-8 flex flex-col justify-center items-center h-[24rem]">
           <h1 className="text-2xl mb-4">Projet : Chatbot </h1>
@@ -80,7 +78,7 @@ export default function Home() {
         </div>
         <img src={chevronDroit} alt="Chevron droit" className="w-4 ml-2" />
       </section>
-      <section>
+      <section className="mx-4 ">
         <ul className="flex justify-center flex-wrap px-2 mb-2">
           {keywords.map((keyword) => (
             <li
