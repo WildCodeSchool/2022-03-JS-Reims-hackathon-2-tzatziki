@@ -1,4 +1,3 @@
-import MatchCardZoom from "@components/MatchCardZoom";
 import Router from "./services/Router";
 import Navbar from "./components/Navbar";
 
@@ -8,7 +7,6 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <MatchCardZoom />
         <Navbar />
       </Router>
     </div>
