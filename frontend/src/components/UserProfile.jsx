@@ -62,7 +62,9 @@ export default function UserProfile() {
       <select id="subsidiary" type="text" name="subsidiary">
         <option value="">Sélectionnez votre filiale</option>
         {subsidiary.map((city) => (
-          <option value={city.id}>{city.name}</option>
+          <option key={city.id} value={city.id}>
+            {city.name}
+          </option>
         ))}
       </select>
       <button

@@ -3,12 +3,14 @@ import PropTypes from "prop-types";
 import Home from "@pages/Home";
 import MatchesDetail from "@pages/MatchesDetail";
 import Matches from "@pages/Matches";
+import Account from "@pages/Account";
 
 // Place all routes here
 const routes = [
   { path: "/", component: <Home /> },
   { path: "/match", component: <Matches /> },
   { path: "/match/:id", component: <MatchesDetail /> },
+  { path: "/account", component: <Account /> },
 ];
 
 function Router({ children }) {
