@@ -1,19 +1,25 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PropTypes from "prop-types";
 import Home from "@pages/Home";
+import MatchesDetail from "@pages/MatchesDetail";
+import Matches from "@pages/Matches";
 
 // Place all routes here
-const routes = [{ path: "/", component: <Home /> }];
+const routes = [
+  { path: "/", component: <Home /> },
+  { path: "/match", component: <Matches /> },
+  { path: "/match/:id", component: <MatchesDetail /> },
+];
 
 function Router({ children }) {
   return (
     <BrowserRouter>
-      {children}
       <Routes>
         {routes.map((route) => (
           <Route key={route.path} path={route.path} element={route.component} />
         ))}
       </Routes>
+      {children}
     </BrowserRouter>
   );
 }
