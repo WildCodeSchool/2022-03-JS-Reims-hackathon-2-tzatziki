@@ -1,4 +1,4 @@
-import likedList from "../dummies/linkedList";
+import likedList from "../dummies/likedList";
 import MatchCard from "./MatchCard";
 
 function MatchList() {
