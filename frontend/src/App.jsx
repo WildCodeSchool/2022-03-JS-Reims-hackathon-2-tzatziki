@@ -1,11 +1,11 @@
-import Home from "@pages/Home";
+import MatchList from "@components/MatchList";
 
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <Home />
+      <MatchList />
     </div>
   );
 }

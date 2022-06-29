@@ -1,0 +1,17 @@
+const likedList = [
+  {
+    id: 1,
+    name: "Potential Octo Umbrella",
+    readme: "https://raw.githubusercontent.com/potential-octo/potential-octo.github.io/master/README.md",
+    tags: [
+  "react",
+  "react-hooks",
+  "react-router",
+  "styled-components",
+  "styled-system",
+  "tailwindcss",
+  "tailwindcss-react",
+  "tailwindcss-styled-components",
+],
+
+]
