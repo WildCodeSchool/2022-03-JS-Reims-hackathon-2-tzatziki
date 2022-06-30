@@ -1,15 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import MatchesContext from "./contexts/MatchesContext";
+import { MatchesContextProvider } from "./contexts/MatchesContext";
 
 import App from "./App";
 
 ReactDOM.render(
   <React.StrictMode>
-    <MatchesContext>
+    <MatchesContextProvider>
       <App />
-    </MatchesContext>
+    </MatchesContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
