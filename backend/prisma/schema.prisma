@@ -1,0 +1,52 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           Int            @id @default(autoincrement())
+  firstname    String         @db.VarChar(255)
+  lastname     String         @db.VarChar(255)
+  profession   String         @db.VarChar(255)
+  subsidiary   String         @db.VarChar(255)
+  Project_User Project_User[]
+}
+
+model Project {
+  id              Int               @id @default(autoincrement())
+  title           String            @db.VarChar(255)
+  description     String            @db.LongText
+  client_name     String            @db.VarChar(255)
+  progress        Int               @db.Int
+  Project_User    Project_User[]
+  Keyword_Project Keyword_Project[]
+}
+
+model Keyword {
+  id              Int               @id @default(autoincrement())
+  name            String            @db.VarChar(255)
+  Keyword_Project Keyword_Project[]
+}
+
+model Project_User {
+  id         Int     @id @default(autoincrement())
+  project    Project @relation(fields: [project_id], references: [id])
+  project_id Int     @db.Int
+  user       User    @relation(fields: [user_id], references: [id])
+  user_id    Int     @db.Int
+}
+
+model Keyword_Project {
+  id         Int     @id @default(autoincrement())
+  project    Project @relation(fields: [project_id], references: [id])
+  project_id Int     @db.Int
+  keyword    Keyword @relation(fields: [keyword_id], references: [id])
+  keyword_id Int     @db.Int
+}
