@@ -11,8 +11,8 @@ export default function Home() {
       <TinderCard />
       <Keywords />
       <ToastContainer
-        position="top-center"
-        autoClose={1500}
+        position="bottom-center"
+        autoClose={2000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
