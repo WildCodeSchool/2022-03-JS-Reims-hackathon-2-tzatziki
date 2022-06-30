@@ -3,37 +3,27 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import { useMatchesContext } from "../contexts/MatchesContext";
 import projects from "../dummies/projects";
+import Keywords from "./Keywords";
 
 export default function Tindercard() {
   const setLastDirection = useState()[1];
   const { setMatches } = useMatchesContext();
 
-  const swiped = (direction, title, client, description, progress) => {
+  const swiped = (direction, project) => {
     setLastDirection(direction);
     if (direction === "right") {
-      setMatches((prevState) => [
-        ...prevState,
-        { title, client, description, progress },
-      ]);
+      setMatches((prevState) => [...prevState, project]);
       toast.success("Matché ❤️ !");
     }
   };
 
   return (
-    <section className="h-[25rem] mx-8">
+    <section className="h-[32rem] mx-8">
       {projects.map((project) => (
         <TinderCard
           className="relative"
           key={project.title}
-          onSwipe={(direction) =>
-            swiped(
-              direction,
-              project.title,
-              project.client,
-              project.description,
-              project.progress
-            )
-          }
+          onSwipe={(direction) => swiped(direction, project)}
         >
           <div className="bg-slate-100 rounded-xl p-8 flex flex-col justify-center items-center absolute">
             <h1 className="text-2xl mb-4">Projet : {project.title} </h1>
@@ -47,6 +37,7 @@ export default function Tindercard() {
                 {project.progress}
               </progress>
             </div>
+            <Keywords keywords={project.keyword} />
           </div>
         </TinderCard>
       ))}
