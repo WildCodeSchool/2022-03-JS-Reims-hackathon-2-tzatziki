@@ -28,13 +28,13 @@ class ProjectController {
   };
 
   static edit = (req, res) => {
-    const item = req.body;
+    const Project = req.body;
 
     // TODO validations (length, format...)
 
-    item.id = parseInt(req.params.id, 10);
+    Project.id = parseInt(req.params.id, 10);
 
-    models.Project.update(item)
+    models.Project.update(Project)
       .then(([result]) => {
         if (result.affectedRows === 0) {
           res.sendStatus(404);
@@ -49,13 +49,13 @@ class ProjectController {
   };
 
   static add = (req, res) => {
-    const item = req.body;
+    const Project = req.body;
 
     // TODO validations (length, format...)
 
-    models.Project.insert(item)
+    models.Project.insert(Project)
       .then(([result]) => {
-        res.status(201).send({ ...item, id: result.insertId });
+        res.status(201).send({ ...Project, id: result.insertId });
       })
       .catch((err) => {
         console.error(err);
