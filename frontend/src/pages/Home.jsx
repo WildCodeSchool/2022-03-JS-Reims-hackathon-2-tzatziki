@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import TinderCard from "react-tinder-card";
 import Header from "@components/Header";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const keywords = [
   {
@@ -68,17 +70,25 @@ const projects = [
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas ea maxime quia! Eligendi at temporibus ex, magni nihil doloremque, fugit magnam odit, voluptatibus ipsa cum",
     progress: 50,
   },
+  {
+    title: "TinderSurprise",
+    client: "Tinder",
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas ea maxime quia! Eligendi at temporibus ex, magni nihil doloremque, fugit magnam odit, voluptatibus ipsa cum",
+    progress: 50,
+  },
 ];
 
 const matches = [];
 
 export default function Home() {
-  const [lastDirection, setLastDirection] = useState();
+  const setLastDirection = useState()[1];
 
   const swiped = (direction, title, client, description, progress) => {
     setLastDirection(direction);
     if (direction === "right") {
       matches.push({ title, client, description, progress });
+      toast.success("Matché ❤️ !");
     }
     console.warn(matches);
   };
@@ -122,9 +132,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <section className="text-center">
-        {lastDirection === "right" ? <p>Matché ❤️ !</p> : <p />}
-      </section>
       <section>
         <ul className="flex justify-center flex-wrap px-2 mb-2">
           {keywords.map((keyword) => (
@@ -138,6 +145,17 @@ export default function Home() {
         </ul>
       </section>
       <div />
+      <ToastContainer
+        position="top-center"
+        autoClose={1500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </main>
   );
 }
