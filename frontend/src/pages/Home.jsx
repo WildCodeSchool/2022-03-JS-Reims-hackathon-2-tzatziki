@@ -3,6 +3,7 @@ import Logo from "@components/Logo";
 import "react-toastify/dist/ReactToastify.css";
 import TinderCard from "@components/TinderCard";
 import Keywords from "@components/Keywords";
+import SwipeLogo from "@components/SwipeLogo";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <Logo />
       <TinderCard />
       <Keywords />
+      <SwipeLogo />
       <ToastContainer
         position="bottom-center"
         autoClose={2000}

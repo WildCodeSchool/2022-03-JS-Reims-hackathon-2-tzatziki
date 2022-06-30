@@ -41,7 +41,7 @@ export default function Tindercard() {
   };
 
   return (
-    <section className="h-[25rem] mx-8">
+    <section className="h-[24rem] mx-8">
       {projects.map((project) => (
         <TinderCard
           className="relative"
