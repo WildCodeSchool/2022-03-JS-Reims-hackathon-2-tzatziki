@@ -113,8 +113,7 @@ export default function Home() {
                 <div className="flex flex-col justify-center items-center">
                   Avancement :{" "}
                   <progress id="file" max="100" value={project.progress}>
-                    {" "}
-                    70%{" "}
+                    {project.progress}
                   </progress>
                 </div>
               </div>
@@ -123,7 +122,7 @@ export default function Home() {
         </div>
       </section>
       <section className="text-center">
-        {lastDirection === "right" ? <p>Matché ❤️ !</p> : <p />}
+        {lastDirection === "right" ? <p>Matché ❤️ !</p> : <p>Tu peux swiper</p>}
       </section>
       <section>
         <ul className="flex justify-center flex-wrap px-2 mb-2">
@@ -137,7 +136,6 @@ export default function Home() {
           ))}
         </ul>
       </section>
-      <div />
     </main>
   );
 }

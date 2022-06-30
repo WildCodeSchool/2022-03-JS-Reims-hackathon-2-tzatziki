@@ -1,7 +1,13 @@
 import MatchList from "@components/MatchList";
+import Header from "@components/Header";
 
 function Matches() {
-  return <MatchList />;
+  return (
+    <>
+      <Header />
+      <MatchList />
+    </>
+  );
 }
 
 export default Matches;
