@@ -1,60 +1,29 @@
 import TinderCard from "react-tinder-card";
 import { useState } from "react";
 import { toast } from "react-toastify";
-
-const projects = [
-  {
-    title: "Chatbot",
-    client: "Crédit Agricole",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora labore, facilis ea suscipit natus repellendus ipsa eos atque, odit, assumenda explicabo recusandae aliquid optio corrupti.",
-    progress: 70,
-  },
-  {
-    title: "Tinderlike",
-    client: "Tinder",
-    description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas ea maxime quia! Eligendi at temporibus ex, magni nihil doloremque, fugit magnam odit, voluptatibus ipsa cum",
-    progress: 50,
-  },
-  {
-    title: "Surprise",
-    client: "Tinder",
-    description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas ea maxime quia! Eligendi at temporibus ex, magni nihil doloremque, fugit magnam odit, voluptatibus ipsa cum",
-    progress: 50,
-  },
-];
-
-const matches = [];
+import { useMatchesContext } from "../contexts/MatchesContext";
+import projects from "../dummies/projects";
+import Keywords from "./Keywords";
 
 export default function Tindercard() {
   const setLastDirection = useState()[1];
+  const { setMatches } = useMatchesContext();
 
-  const swiped = (direction, title, client, description, progress) => {
+  const swiped = (direction, project) => {
     setLastDirection(direction);
     if (direction === "right") {
-      matches.push({ title, client, description, progress });
+      setMatches((prevState) => [...prevState, project]);
       toast.success("Matché ❤️ !");
     }
-    console.warn(matches);
   };
 
   return (
-    <section className="h-[24rem] mx-8">
+    <section className="h-[32rem] mx-8">
       {projects.map((project) => (
         <TinderCard
           className="relative"
           key={project.title}
-          onSwipe={(direction) =>
-            swiped(
-              direction,
-              project.title,
-              project.client,
-              project.description,
-              project.progress
-            )
-          }
+          onSwipe={(direction) => swiped(direction, project)}
         >
           <div className="bg-slate-100 rounded-xl p-8 flex flex-col justify-center items-center absolute">
             <h1 className="text-2xl mb-4">Projet : {project.title} </h1>
@@ -62,12 +31,13 @@ export default function Tindercard() {
             <p className="text-justify text-md mb-4">
               Description : {project.description}
             </p>
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col justify-center items-center mb-4">
               Avancement :{" "}
               <progress id="file" max="100" value={project.progress}>
                 {project.progress}
               </progress>
             </div>
+            <Keywords keywords={project.keyword} />
           </div>
         </TinderCard>
       ))}

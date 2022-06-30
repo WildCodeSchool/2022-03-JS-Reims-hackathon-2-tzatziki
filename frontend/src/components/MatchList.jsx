@@ -1,9 +1,10 @@
-import likedList from "../dummies/likedList";
 import MatchCard from "./MatchCard";
+import { useMatchesContext } from "../contexts/MatchesContext";
 
 function MatchList() {
-  return likedList.map((match) => (
-    <MatchCard key={match.id} match={match} id={match.id} />
+  const { matches } = useMatchesContext();
+  return matches.map((match, index) => (
+    <MatchCard key={match.title} match={match} id={parseInt(index, 10)} />
   ));
 }
 
