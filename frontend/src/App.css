@@ -18,3 +18,7 @@ body {
 .Toastify__toast-body svg {
   fill: #183650;
 }
+.App > :first-child {
+  flex-grow: 1;
+  overflow: auto;
+}
