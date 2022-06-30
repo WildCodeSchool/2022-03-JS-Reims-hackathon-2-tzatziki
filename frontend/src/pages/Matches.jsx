@@ -1,10 +1,10 @@
 import MatchList from "@components/MatchList";
-import Header from "@components/Header";
+import Logo from "@components/Logo";
 
 function Matches() {
   return (
     <>
-      <Header />
+      <Logo />
       <MatchList />
     </>
   );

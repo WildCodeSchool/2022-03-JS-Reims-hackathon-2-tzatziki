@@ -1,5 +1,5 @@
 import MatchCardZoom from "@components/MatchCardZoom";
-import Header from "@components/Header";
+import Logo from "@components/Logo";
 
 import { useParams } from "react-router-dom";
 
@@ -7,7 +7,7 @@ function Matches() {
   const { id } = useParams();
   return (
     <>
-      <Header />
+      <Logo />
       <MatchCardZoom id={parseInt(id, 10)} />
     </>
   );

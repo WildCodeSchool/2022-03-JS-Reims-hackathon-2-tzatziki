@@ -10,3 +10,8 @@
 body {
   font-family: "montserrat";
 }
+
+.App>:first-child {
+  flex-grow: 1;
+  overflow: auto;
+}

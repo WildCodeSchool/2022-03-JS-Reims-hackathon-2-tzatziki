@@ -16,11 +16,17 @@ const routes = [
 function Router({ children }) {
   return (
     <BrowserRouter>
-      <Routes>
-        {routes.map((route) => (
-          <Route key={route.path} path={route.path} element={route.component} />
-        ))}
-      </Routes>
+      <main>
+        <Routes>
+          {routes.map((route) => (
+            <Route
+              key={route.path}
+              path={route.path}
+              element={route.component}
+            />
+          ))}
+        </Routes>
+      </main>
       {children}
     </BrowserRouter>
   );
