@@ -45,3 +45,19 @@ progress[value]::-webkit-progress-value {
   flex-grow: 1;
   overflow: auto;
 }
+
+.TinderCardAnimation {
+  animation: TinderCardAnimation 5s infinite;
+}
+
+@keyframes TinderCardAnimation {
+  0% {
+    transform: (0, 0);
+  }
+  20% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: (0, 0);
+  }
+}
