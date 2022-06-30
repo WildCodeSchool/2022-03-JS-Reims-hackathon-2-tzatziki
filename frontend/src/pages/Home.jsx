@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import TinderCard from "react-tinder-card";
+import { ToastContainer, toast } from "react-toastify";
 import logo from "../assets/logo-matchstack-full.png";
+import "react-toastify/dist/ReactToastify.css";
 
 const keywords = [
   {
@@ -68,17 +70,25 @@ const projects = [
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas ea maxime quia! Eligendi at temporibus ex, magni nihil doloremque, fugit magnam odit, voluptatibus ipsa cum",
     progress: 50,
   },
+  {
+    title: "Surprise",
+    client: "Tinder",
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas ea maxime quia! Eligendi at temporibus ex, magni nihil doloremque, fugit magnam odit, voluptatibus ipsa cum",
+    progress: 50,
+  },
 ];
 
 const matches = [];
 
 export default function Home() {
-  const [, setLastDirection] = useState();
+  const setLastDirection = useState()[1];
 
   const swiped = (direction, title, client, description, progress) => {
     setLastDirection(direction);
     if (direction === "right") {
       matches.push({ title, client, description, progress });
+      toast.success("Matché ❤️ !");
     }
     console.warn(matches);
   };
@@ -88,7 +98,6 @@ export default function Home() {
       <picture className="flex justify-center">
         <img src={logo} alt="logo-matchstack" className="h-20" />
       </picture>
-
       <section className="h-[25rem]">
         {projects.map((project) => (
           <TinderCard
@@ -133,7 +142,17 @@ export default function Home() {
           ))}
         </ul>
       </section>
-      <div />
+      <ToastContainer
+        position="top-center"
+        autoClose={1500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </main>
   );
 }
