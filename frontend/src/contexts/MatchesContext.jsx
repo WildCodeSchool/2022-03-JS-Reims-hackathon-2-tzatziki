@@ -4,9 +4,9 @@ import PropTypes from "prop-types";
 const MatchesContext = createContext();
 
 export function MatchesContextProvider({ children }) {
-  const [Matches, setMatches] = useState([]);
+  const [matches, setMatches] = useState([]);
 
-  const value = useMemo(() => ({ Matches, setMatches }), [Matches]);
+  const value = useMemo(() => ({ matches, setMatches }), [matches]);
 
   return (
     <MatchesContext.Provider value={value}>{children}</MatchesContext.Provider>
