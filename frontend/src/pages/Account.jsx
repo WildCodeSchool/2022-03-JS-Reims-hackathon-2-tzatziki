@@ -5,7 +5,9 @@ export default function Account() {
   return (
     <>
       <Logo />
-      <UserProfile />
+      <div className="h-[70vh] flex flex-col justify-center">
+        <UserProfile />
+      </div>
     </>
   );
 }
