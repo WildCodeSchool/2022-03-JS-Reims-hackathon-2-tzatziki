@@ -1,20 +1,21 @@
 import Proptypes from "prop-types";
-import likedList from "../dummies/likedList";
+import { useMatchesContext } from "../contexts/MatchesContext";
 
 const titleClass = "tracking-wide text-2xl m-2";
 
 function MatchCardZoom({ id }) {
-  const match = likedList[id - 1];
-  return likedList && id ? (
+  const { matches } = useMatchesContext();
+  const match = matches[id];
+  return match ? (
     <main className="flex flex-col m-4">
-      <h3 className={titleClass}>{match.name}</h3>
+      <h3 className={titleClass}>{match.title}</h3>
       <section>
         <h4 className={titleClass}>Description</h4>
-        <p>{match.readme}</p>
+        <p>{match.description}</p>
       </section>
       <section>
         <h4 className={titleClass}>Filliale</h4>
-        <p>{match.branch}</p>
+        <p>{match.subsidiary}</p>
       </section>
       <section>
         <h4 className={titleClass}>Staff</h4>
@@ -31,7 +32,7 @@ function MatchCardZoom({ id }) {
       <section>
         <h4 className={titleClass}>Tags</h4>
         <ul className="flex flex-wrap gap-2 p-3">
-          {match.tags.map((tag) => (
+          {match.keyword.map((tag) => (
             <li
               key={tag}
               className="flex w-fit px-2 justify-center items-center rounded-md bg-orange-300"
