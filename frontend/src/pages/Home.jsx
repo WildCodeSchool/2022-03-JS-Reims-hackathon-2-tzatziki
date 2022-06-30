@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import TinderCard from "react-tinder-card";
 import { ToastContainer, toast } from "react-toastify";
-import logo from "../assets/logo-matchstack-full.png";
+import Logo from "@components/Logo";
 import "react-toastify/dist/ReactToastify.css";
 
 const keywords = [
@@ -94,11 +94,9 @@ export default function Home() {
   };
 
   return (
-    <main className="h-[92vh] flex flex-col mx-8 place-content-around">
-      <picture className="flex justify-center">
-        <img src={logo} alt="logo-matchstack" className="h-20" />
-      </picture>
-      <section className="h-[25rem]">
+    <div className="h-full flex flex-col place-content-around">
+      <Logo />
+      <section className="h-[25rem] mx-8">
         {projects.map((project) => (
           <TinderCard
             className="relative"
@@ -129,8 +127,7 @@ export default function Home() {
           </TinderCard>
         ))}
       </section>
-
-      <section>
+      <section className="mx-8">
         <ul className="flex justify-center flex-wrap px-2 gap-2">
           {keywords.map((keyword) => (
             <li
@@ -153,6 +150,6 @@ export default function Home() {
         draggable
         pauseOnHover
       />
-    </main>
+    </div>
   );
 }
