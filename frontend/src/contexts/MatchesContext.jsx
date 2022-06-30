@@ -17,4 +17,4 @@ MatchesContextProvider.propTypes = {
   children: PropTypes.element.isRequired,
 };
 
-export const useMatches = () => useContext(MatchesContext);
+export const useMatchesContext = () => useContext(MatchesContext);
