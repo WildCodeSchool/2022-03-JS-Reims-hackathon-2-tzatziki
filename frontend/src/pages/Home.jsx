@@ -1,4 +1,4 @@
-import logo from "../assets/logo-abside.png";
+import Header from "../components/Header";
 import chevronDroit from "../assets/chevron-droit.png";
 import chevronGauche from "../assets/chevron-gauche.png";
 
@@ -57,7 +57,7 @@ export default function Home() {
   return (
     <main className="h-[92vh] flex flex-col mx-4 place-content-around">
       <picture className="flex justify-center ">
-        <img className="max-w-[40%]" src={logo} alt="Logo Abside" />
+        <Header />
       </picture>
       <section className="flex justify-center items-center">
         <img src={chevronGauche} alt="Chevron gauche" className="w-4 mr-2" />
