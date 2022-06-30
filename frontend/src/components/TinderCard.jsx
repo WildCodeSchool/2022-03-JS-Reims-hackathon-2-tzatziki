@@ -31,7 +31,7 @@ export default function Tindercard() {
             <p className="text-justify text-md mb-4">
               Description : {project.description}
             </p>
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col justify-center items-center mb-4">
               Avancement :{" "}
               <progress id="file" max="100" value={project.progress}>
                 {project.progress}
