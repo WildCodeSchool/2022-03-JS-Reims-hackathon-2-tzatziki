@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import TinderCard from "react-tinder-card";
-import logo from "../assets/logo-abside.png";
+import Header from "@components/Header";
 
 const keywords = [
   {
@@ -86,7 +86,7 @@ export default function Home() {
   return (
     <main className="h-[92vh] flex flex-col mx-4 place-content-around">
       <picture className="flex justify-center ">
-        <img className="max-w-[40%]" src={logo} alt="Logo Abside" />
+        <Header />
       </picture>
       <section className="flex justify-center items-center">
         <div className="h-[25rem] w-[80vw]">
