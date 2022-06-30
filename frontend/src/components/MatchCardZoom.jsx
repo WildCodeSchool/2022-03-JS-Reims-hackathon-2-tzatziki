@@ -1,6 +1,6 @@
 import Proptypes from "prop-types";
-import { useMatchesContext } from "../contexts/MatchesContext";
 import logo from "@assets/logo-slack.png";
+import { useMatchesContext } from "../contexts/MatchesContext";
 
 const titleClass = "tracking-wide text-2xl m-2";
 

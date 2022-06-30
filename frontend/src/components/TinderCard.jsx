@@ -25,7 +25,7 @@ export default function Tindercard() {
           key={project.title}
           onSwipe={(direction) => swiped(direction, project)}
         >
-          <div className="bg-slate-100 rounded-xl p-8 flex flex-col absolute">
+          <div className="bg-slate-100 rounded-xl p-8 flex flex-col absolute TinderCardAnimation">
             <h1 className="font-bold mb-2">Projet : {project.title} </h1>
             <h2 className="text-sm mb-2 text-[#787878]">
               Client : {project.client}
