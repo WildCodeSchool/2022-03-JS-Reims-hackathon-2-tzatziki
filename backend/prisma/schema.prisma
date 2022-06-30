@@ -11,11 +11,11 @@ datasource db {
 }
 
 model User {
-  id           Int            @id @default(autoincrement())
-  firstname    String         @db.VarChar(255)
-  lastname     String         @db.VarChar(255)
-  profession   String         @db.VarChar(255)
-  subsidiary   String         @db.VarChar(255)
+  id         Int    @id @default(autoincrement())
+  firstname  String @db.VarChar(255)
+  lastname   String @db.VarChar(255)
+  profession String @db.VarChar(255)
+
   Project_User Project_User[]
 }
 
@@ -24,6 +24,9 @@ model Project {
   title           String            @db.VarChar(255)
   description     String            @db.LongText
   client_name     String            @db.VarChar(255)
+  staff           String            @db.VarChar(255)
+  subsidiary      String            @db.VarChar(255)
+  slack           String            @db.VarChar(255)
   progress        Int               @db.Int
   Project_User    Project_User[]
   Keyword_Project Keyword_Project[]
