@@ -11,8 +11,22 @@ body {
   font-family: "montserrat";
 }
 
+:root {
+  --blue-color: #183650;
+}
+
+progress[value]::-webkit-progress-bar {
+  border-radius: 20px;
+  @apply bg-orange-300;
+}
+
+progress[value]::-webkit-progress-value {
+  border-radius: 20px;
+  background-color: #183650;
+}
+
 .Toastify__toast {
-  background-color: #e89759;
+  @apply bg-orange-300;
   color: #fff;
   font-weight: bold;
   font-size: 1.2rem;
