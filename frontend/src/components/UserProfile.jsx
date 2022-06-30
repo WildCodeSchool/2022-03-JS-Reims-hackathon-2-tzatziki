@@ -1,3 +1,4 @@
+import Select from "react-select";
 import subsidiary from "../dummies/subsidiary";
 
 export default function UserProfile() {
@@ -33,19 +34,7 @@ export default function UserProfile() {
         className="bg-gray-100 mb-2 p-1 w-[17rem]"
       />
       <label htmlFor="subsidiary">Filiale :</label>
-      <select
-        id="subsidiary"
-        type="text"
-        name="subsidiary"
-        className="bg-gray-100 p-1.5 w-[17rem]"
-      >
-        <option value="">Sélectionnez votre filiale</option>
-        {subsidiary.map((city) => (
-          <option key={city.id} value={city.id}>
-            {city.name}
-          </option>
-        ))}
-      </select>
+      <Select options={subsidiary} className="bg-gray-100 mb-2 p-1 w-[17rem]" />
       <button
         type="submit"
         className="m-8 p-2 bg-gray-100 border-gray-400 border-2 rounded-lg"
