@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 
 const MatchesContext = createContext();
 
-export function MatchesProvider({ children }) {
-  const [Matches, setMatches] = useState();
+export function MatchesContextProvider({ children }) {
+  const [Matches, setMatches] = useState([]);
 
   const value = useMemo(() => ({ Matches, setMatches }), [Matches]);
 
@@ -13,7 +13,7 @@ export function MatchesProvider({ children }) {
   );
 }
 
-MatchesProvider.propTypes = {
+MatchesContextProvider.propTypes = {
   children: PropTypes.element.isRequired,
 };
 
