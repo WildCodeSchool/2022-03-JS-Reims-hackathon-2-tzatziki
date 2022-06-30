@@ -1,43 +1,22 @@
 import TinderCard from "react-tinder-card";
 import { useState } from "react";
 import { toast } from "react-toastify";
-
-const projects = [
-  {
-    title: "Chatbot",
-    client: "Crédit Agricole",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora labore, facilis ea suscipit natus repellendus ipsa eos atque, odit, assumenda explicabo recusandae aliquid optio corrupti.",
-    progress: 70,
-  },
-  {
-    title: "Tinderlike",
-    client: "Tinder",
-    description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas ea maxime quia! Eligendi at temporibus ex, magni nihil doloremque, fugit magnam odit, voluptatibus ipsa cum",
-    progress: 50,
-  },
-  {
-    title: "Surprise",
-    client: "Tinder",
-    description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas ea maxime quia! Eligendi at temporibus ex, magni nihil doloremque, fugit magnam odit, voluptatibus ipsa cum",
-    progress: 50,
-  },
-];
-
-const matches = [];
+import { useMatchesContext } from "../contexts/MatchesContext";
+import projects from "../dummies/projects";
 
 export default function Tindercard() {
   const setLastDirection = useState()[1];
+  const { setMatches } = useMatchesContext();
 
   const swiped = (direction, title, client, description, progress) => {
     setLastDirection(direction);
     if (direction === "right") {
-      matches.push({ title, client, description, progress });
+      setMatches((prevState) => [
+        ...prevState,
+        { title, client, description, progress },
+      ]);
       toast.success("Matché ❤️ !");
     }
-    console.warn(matches);
   };
 
   return (
