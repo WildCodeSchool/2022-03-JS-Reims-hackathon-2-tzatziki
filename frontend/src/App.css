@@ -10,3 +10,11 @@
 body {
   font-family: "montserrat";
 }
+
+.Toastify__progress-bar {
+  background: #183650;
+}
+
+.Toastify__toast-body svg {
+  fill: #183650;
+}
