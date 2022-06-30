@@ -11,7 +11,23 @@ body {
   font-family: "montserrat";
 }
 
-.App>:first-child {
+.Toastify__toast {
+  background-color: #e89759;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-radius: 0.5rem;
+  margin: 0.5rem;
+}
+
+.Toastify__progress-bar {
+  background: #183650;
+}
+
+.Toastify__toast-body svg {
+  fill: #183650;
+}
+.App > :first-child {
   flex-grow: 1;
   overflow: auto;
 }
