@@ -1,32 +1,6 @@
-export default function UserProfile() {
-  const subsidiary = [
-    { id: 1, name: "Aix-en-Provence" },
-    { id: 2, name: "Aveiro" },
-    { id: 3, name: "Bordeaux" },
-    { id: 4, name: "Brest" },
-    { id: 5, name: "Bruxelles" },
-    { id: 6, name: "Canada" },
-    { id: 7, name: "Casablanca" },
-    { id: 8, name: "Clermont-Ferrand" },
-    { id: 9, name: "Dijon" },
-    { id: 10, name: "Genève" },
-    { id: 11, name: "Le Mans" },
-    { id: 12, name: "Lille" },
-    { id: 13, name: "Lyon" },
-    { id: 14, name: "Montpellier" },
-    { id: 15, name: "Munich" },
-    { id: 16, name: "Nice - Sophia Antipolis" },
-    { id: 17, name: "Nantes" },
-    { id: 18, name: "Niort" },
-    { id: 19, name: "Orléans" },
-    { id: 20, name: "Paris" },
-    { id: 21, name: "Rennes" },
-    { id: 22, name: "Strasbourg" },
-    { id: 23, name: "Toulouse" },
-    { id: 24, name: "Tours" },
-    { id: 25, name: "Vernon" },
-  ];
+import subsidiary from "../dummies/subsidiary";
 
+export default function UserProfile() {
   function submitForm(event) {
     event.preventDefault();
   }
