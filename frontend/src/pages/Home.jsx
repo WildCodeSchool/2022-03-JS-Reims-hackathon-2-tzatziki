@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import TinderCard from "react-tinder-card";
 import logo from "../assets/logo-abside.png";
-import chevronDroit from "../assets/chevron-droit.png";
-import chevronGauche from "../assets/chevron-gauche.png";
 
 const keywords = [
   {
@@ -55,7 +53,7 @@ const keywords = [
   },
 ];
 
-const db = [
+const projects = [
   {
     title: "Chatbot",
     client: "Crédit Agricole",
@@ -72,41 +70,49 @@ const db = [
   },
 ];
 
+const matches = [];
+
 export default function Home() {
   const [lastDirection, setLastDirection] = useState();
 
-  const swiped = (direction, nameToDelete) => {
-    console.log(`removing: ${nameToDelete}`);
+  const swiped = (direction, title, client, description, progress) => {
     setLastDirection(direction);
+    if (direction === "right") {
+      matches.push({ title, client, description, progress });
+    }
+    console.warn(matches);
   };
 
-  const outOfFrame = (name) => {
-    console.log(`${name} left the screen!`);
-  };
   return (
     <main className="h-[92vh] flex flex-col mx-4 place-content-around">
       <picture className="flex justify-center ">
         <img className="max-w-[40%]" src={logo} alt="Logo Abside" />
       </picture>
       <section className="flex justify-center items-center">
-        <img src={chevronGauche} alt="Chevron gauche" className="w-4 mr-2" />
-        <div className="cardContainer">
-          {db.map((character) => (
+        <div className="h-[25rem] w-[80vw]">
+          {projects.map((project) => (
             <TinderCard
-              className="swipe"
-              key={character.title}
-              onSwipe={(dir) => swiped(dir, character.name)}
-              onCardLeftScreen={() => outOfFrame(character.name)}
+              className="relative"
+              key={project.title}
+              onSwipe={(direction) =>
+                swiped(
+                  direction,
+                  project.title,
+                  project.client,
+                  project.description,
+                  project.progress
+                )
+              }
             >
-              <div className="bg-slate-100 rounded-xl p-8 flex flex-col justify-center items-center h-[24rem] card">
-                <h1 className="text-2xl mb-4">Projet : {character.title} </h1>
-                <h2 className="text-xl mb-4">Client : {character.client}</h2>
+              <div className="bg-slate-100 rounded-xl p-8 flex flex-col justify-center items-center absolute">
+                <h1 className="text-2xl mb-4">Projet : {project.title} </h1>
+                <h2 className="text-xl mb-4">Client : {project.client}</h2>
                 <p className="text-justify text-md mb-4">
-                  Description : {character.description}
+                  Description : {project.description}
                 </p>
                 <div className="flex flex-col justify-center items-center">
                   Avancement :{" "}
-                  <progress id="file" max="100" value={character.progress}>
+                  <progress id="file" max="100" value={project.progress}>
                     {" "}
                     70%{" "}
                   </progress>
@@ -115,7 +121,9 @@ export default function Home() {
             </TinderCard>
           ))}
         </div>
-        <img src={chevronDroit} alt="Chevron droit" className="w-4 ml-2" />
+      </section>
+      <section className="text-center">
+        {lastDirection === "right" ? <p>Matché ❤️ !</p> : <p />}
       </section>
       <section>
         <ul className="flex justify-center flex-wrap px-2 mb-2">
