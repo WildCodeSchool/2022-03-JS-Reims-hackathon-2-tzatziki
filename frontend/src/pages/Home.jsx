@@ -1,6 +1,6 @@
-import Header from "../components/Header";
-import chevronDroit from "../assets/chevron-droit.png";
-import chevronGauche from "../assets/chevron-gauche.png";
+import React, { useState } from "react";
+import TinderCard from "react-tinder-card";
+import Header from "@components/Header";
 
 const keywords = [
   {
@@ -53,32 +53,77 @@ const keywords = [
   },
 ];
 
+const projects = [
+  {
+    title: "Chatbot",
+    client: "Crédit Agricole",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora labore, facilis ea suscipit natus repellendus ipsa eos atque, odit, assumenda explicabo recusandae aliquid optio corrupti.",
+    progress: 70,
+  },
+  {
+    title: "Tinderlike",
+    client: "Tinder",
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas ea maxime quia! Eligendi at temporibus ex, magni nihil doloremque, fugit magnam odit, voluptatibus ipsa cum",
+    progress: 50,
+  },
+];
+
+const matches = [];
+
 export default function Home() {
+  const [lastDirection, setLastDirection] = useState();
+
+  const swiped = (direction, title, client, description, progress) => {
+    setLastDirection(direction);
+    if (direction === "right") {
+      matches.push({ title, client, description, progress });
+    }
+    console.warn(matches);
+  };
+
   return (
     <main className="h-[92vh] flex flex-col mx-4 place-content-around">
       <picture className="flex justify-center ">
         <Header />
       </picture>
       <section className="flex justify-center items-center">
-        <img src={chevronGauche} alt="Chevron gauche" className="w-4 mr-2" />
-        <div className="bg-slate-100 rounded-xl p-8 flex flex-col justify-center items-center h-[24rem]">
-          <h1 className="text-2xl mb-4">Projet : Chatbot </h1>
-          <h2 className="text-xl mb-4">Client : Crédit Agricole</h2>
-          <p className="text-justify text-md mb-4">
-            Description : Lorem ipsum dolor sit amet consectetur adipisicing
-            elit. Mollitia ducimus eius cumque earum itaque natus, molestias
-            sapiente reprehenderit iusto, delectus aliquam nesciunt aut corporis
-            exercita.
-          </p>
-          <div className="flex flex-col justify-center items-center">
-            Avancement :{" "}
-            <progress id="file" max="100" value="70">
-              {" "}
-              70%{" "}
-            </progress>
-          </div>
+        <div className="h-[25rem] w-[80vw]">
+          {projects.map((project) => (
+            <TinderCard
+              className="relative"
+              key={project.title}
+              onSwipe={(direction) =>
+                swiped(
+                  direction,
+                  project.title,
+                  project.client,
+                  project.description,
+                  project.progress
+                )
+              }
+            >
+              <div className="bg-slate-100 rounded-xl p-8 flex flex-col justify-center items-center absolute">
+                <h1 className="text-2xl mb-4">Projet : {project.title} </h1>
+                <h2 className="text-xl mb-4">Client : {project.client}</h2>
+                <p className="text-justify text-md mb-4">
+                  Description : {project.description}
+                </p>
+                <div className="flex flex-col justify-center items-center">
+                  Avancement :{" "}
+                  <progress id="file" max="100" value={project.progress}>
+                    {" "}
+                    70%{" "}
+                  </progress>
+                </div>
+              </div>
+            </TinderCard>
+          ))}
         </div>
-        <img src={chevronDroit} alt="Chevron droit" className="w-4 ml-2" />
+      </section>
+      <section className="text-center">
+        {lastDirection === "right" ? <p>Matché ❤️ !</p> : <p />}
       </section>
       <section>
         <ul className="flex justify-center flex-wrap px-2 mb-2">
