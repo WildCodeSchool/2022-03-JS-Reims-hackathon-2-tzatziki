@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import TinderCard from "react-tinder-card";
-import Header from "@components/Header";
 import { ToastContainer, toast } from "react-toastify";
+import logo from "../assets/logo-matchstack-full.png";
 import "react-toastify/dist/ReactToastify.css";
 
 const keywords = [
@@ -71,7 +71,7 @@ const projects = [
     progress: 50,
   },
   {
-    title: "TinderSurprise",
+    title: "Surprise",
     client: "Tinder",
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas ea maxime quia! Eligendi at temporibus ex, magni nihil doloremque, fugit magnam odit, voluptatibus ipsa cum",
@@ -94,49 +94,47 @@ export default function Home() {
   };
 
   return (
-    <main className="h-[92vh] flex flex-col mx-4 place-content-around">
-      <picture className="flex justify-center ">
-        <Header />
+    <main className="h-[92vh] flex flex-col mx-8 place-content-around">
+      <picture className="flex justify-center">
+        <img src={logo} alt="logo-matchstack" className="h-20" />
       </picture>
-      <section className="flex justify-center items-center">
-        <div className="h-[25rem] w-[80vw]">
-          {projects.map((project) => (
-            <TinderCard
-              className="relative"
-              key={project.title}
-              onSwipe={(direction) =>
-                swiped(
-                  direction,
-                  project.title,
-                  project.client,
-                  project.description,
-                  project.progress
-                )
-              }
-            >
-              <div className="bg-slate-100 rounded-xl p-8 flex flex-col justify-center items-center absolute">
-                <h1 className="text-2xl mb-4">Projet : {project.title} </h1>
-                <h2 className="text-xl mb-4">Client : {project.client}</h2>
-                <p className="text-justify text-md mb-4">
-                  Description : {project.description}
-                </p>
-                <div className="flex flex-col justify-center items-center">
-                  Avancement :{" "}
-                  <progress id="file" max="100" value={project.progress}>
-                    {" "}
-                    70%{" "}
-                  </progress>
-                </div>
+      <section className="h-[25rem]">
+        {projects.map((project) => (
+          <TinderCard
+            className="relative"
+            key={project.title}
+            onSwipe={(direction) =>
+              swiped(
+                direction,
+                project.title,
+                project.client,
+                project.description,
+                project.progress
+              )
+            }
+          >
+            <div className="bg-slate-100 rounded-xl p-8 flex flex-col justify-center items-center absolute">
+              <h1 className="text-2xl mb-4">Projet : {project.title} </h1>
+              <h2 className="text-xl mb-4">Client : {project.client}</h2>
+              <p className="text-justify text-md mb-4">
+                Description : {project.description}
+              </p>
+              <div className="flex flex-col justify-center items-center">
+                Avancement :{" "}
+                <progress id="file" max="100" value={project.progress}>
+                  {project.progress}
+                </progress>
               </div>
-            </TinderCard>
-          ))}
-        </div>
+            </div>
+          </TinderCard>
+        ))}
       </section>
+
       <section>
-        <ul className="flex justify-center flex-wrap px-2 mb-2">
+        <ul className="flex justify-center flex-wrap px-2 gap-2">
           {keywords.map((keyword) => (
             <li
-              className="flex w-fit px-2 justify-center items-center rounded-md bg-orange-300 m-2"
+              className="flex w-fit px-2 justify-center items-center rounded-md bg-orange-300"
               key={keyword.id}
             >
               {keyword.name}
@@ -144,7 +142,6 @@ export default function Home() {
           ))}
         </ul>
       </section>
-      <div />
       <ToastContainer
         position="top-center"
         autoClose={1500}
