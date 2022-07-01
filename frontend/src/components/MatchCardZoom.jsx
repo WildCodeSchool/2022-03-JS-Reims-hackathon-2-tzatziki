@@ -8,9 +8,9 @@ function MatchCardZoom({ id }) {
   const { matches } = useMatchesContext();
   const match = matches[id];
   return match ? (
-    <main className="flex flex-col m-4">
+    <main className="flex flex-col m-4 md: justify-center items-center w-[500px] border border-gray-300 border-solid rounded-lg translate-x-[140%]">
       <h3 className={titleClass}>{match.title}</h3>
-      <section>
+      <section className="md: flex flex-col m-4 justify-center items-center ">
         <h4 className={titleClass}>Description 🔎</h4>
         <p>{match.description}</p>
       </section>

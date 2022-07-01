@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function MatchCard({ match, id }) {
   return (
     <Link to={`/match/${id}`}>
-      <section className="flex flex-col border border-black rounded-md justify-center items-center m-4">
+      <section className="flex flex-col border border-black rounded-md justify-center items-center m-4 md: w-[500px] translate-x-[140%]">
         <h3 className="p-2">{match.title}</h3>
         <ul className="flex flex-wrap gap-2 p-3">
           {match.keyword.map((tag) => (
