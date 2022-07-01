@@ -18,14 +18,14 @@ export default function Tindercard() {
   };
 
   return (
-    <section className="h-[33rem] mx-8">
+    <section className="h-[33rem] mx-8 md: h-[43rem] translate-x-[36%]">
       {projects.map((project) => (
         <TinderCard
           className="relative"
           key={project.title}
           onSwipe={(direction) => swiped(direction, project)}
         >
-          <div className="bg-slate-100 rounded-xl p-8 flex flex-col absolute TinderCardAnimation">
+          <div className="bg-slate-100 rounded-xl p-8 flex flex-col absolute TinderCardAnimation md: h-[60vh] w-[50vh]">
             <h1 className="font-bold mb-2">Projet : {project.title} </h1>
             <h2 className="text-sm mb-2 text-[#787878]">
               Client : {project.client}

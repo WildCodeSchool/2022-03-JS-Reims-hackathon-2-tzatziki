@@ -47,7 +47,7 @@ progress[value]::-webkit-progress-value {
 }
 
 .TinderCardAnimation {
-  animation: TinderCardAnimation 5s infinite;
+  animation: TinderCardAnimation 6s infinite;
 }
 
 @keyframes TinderCardAnimation {
@@ -55,7 +55,7 @@ progress[value]::-webkit-progress-value {
     transform: (0, 0);
   }
   20% {
-    transform: rotate(5deg);
+    transform: rotate(3deg);
   }
   100% {
     transform: (0, 0);

@@ -4,7 +4,7 @@ import logo from "../assets/logo-matchstack-full.png";
 export default function Logo() {
   return (
     <Link to="/admin">
-      <picture className="flex justify-center mb-4 p-4">
+      <picture className="flex justify-center mb-4 p-4 md: w-[500px] translate-x-[145%]">
         <img
           src={logo}
           alt="logo-matchstack"
